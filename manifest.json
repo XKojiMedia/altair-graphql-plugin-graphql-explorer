@@ -1,0 +1,16 @@
+{
+  "manifest_version": 1,
+  "name" : "x-qwasezio",
+  "version" : "1.0.1",
+  "description" : "A explorer plugin for Altair GraphQL",
+  "author_email" : "ezio.loratio@example.com",
+  "author" : "Ezio Loratio",
+  "type": "sidebar",
+  "sidebar_opts": {
+    "element_name": "x-qwasezio",
+    "icon": "assets/icon.svg"
+  },
+  "scripts": [
+    "dist/main.js"
+  ]
+}
