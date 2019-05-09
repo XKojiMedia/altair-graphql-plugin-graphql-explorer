@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import GraphiQLExplorer from 'graphiql-explorer';
-import { buildSchema, printSchema } from 'graphql';
+import { buildSchema } from 'graphql';
 
 export class Wrapper extends Component {
   static defaultProps = {
@@ -15,7 +15,7 @@ export class Wrapper extends Component {
   }
 
   componentDidMount() {
-    console.log('XXXX', 'mounted');
+    // console.log('XXXX', 'mounted');
   }
 
   componentWillReceiveProps(newProps) {
@@ -24,7 +24,7 @@ export class Wrapper extends Component {
       newProps.sdl &&
       (!this.props.sdl || newProps.sdl.length !== this.props.sdl.length)
     ) {
-      console.log('XXXX', 'building schema', newProps, this.props);
+      // console.log('XXXX', 'building schema', newProps, this.props);
       this.setState({ schema: buildSchema(newProps.sdl) });
     }
   }
@@ -34,7 +34,7 @@ export class Wrapper extends Component {
     const noop = (...args) => console.log(...args);
     const { schema } = this.state;
 
-    console.log(this.schema);
+    // console.log(this.schema);
 
     return (
       <GraphiQLExplorer

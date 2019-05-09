@@ -1,6 +1,6 @@
 {
   "manifest_version": 1,
-  "name" : "x-qwasezio",
+  "name" : "qwasezio-explorer",
   "version" : "1.0.1",
   "description" : "A explorer plugin for Altair GraphQL",
   "author_email" : "ezio.loratio@example.com",
