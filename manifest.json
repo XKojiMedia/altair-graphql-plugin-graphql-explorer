@@ -1,16 +1,17 @@
 {
   "manifest_version": 1,
-  "name" : "qwasezio-explorer",
+  "name" : "altair-graphql-plugin-graphql-explorer",
   "version" : "1.0.2",
-  "description" : "A explorer plugin for Altair GraphQL",
-  "author_email" : "ezio.loratio@example.com",
-  "author" : "Ezio Loratio",
+  "description" : "GraphiQL explorer plugin for Altair GraphQL",
+  "author_email" : "altair@sirmuel.design",
+  "author" : "Altair GraphQL Client",
   "type": "sidebar",
   "sidebar_opts": {
-    "element_name": "x-qwasezio",
+    "element_name": "altair-graphql-plugin-graphql-explorer-element",
     "icon": "assets/icon.svg"
   },
   "scripts": [
-    "dist/main.js"
+    "dist/main.js",
+    "dist/main.css"
   ]
 }

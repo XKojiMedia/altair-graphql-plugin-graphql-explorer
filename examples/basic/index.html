@@ -3,7 +3,18 @@
     <script src="../../dist/main.js"></script>
   </head>
     <body>
-        <x-search name="Samuel"></x-search>
+        <x-qwasezio name="Samuel"></x-qwasezio>
+        <zzart-x name="Samuel" last-name="Imolorhe"></zzart-x>
+        <script>
+          class GQL {
+            tryme() {
+              console.log('try me');
+            }
+          }
+          window.gql = new GQL();
+        </script>
+        <script>document.querySelector('zzart-x').props = { asdf: true, gql: window.gql };</script>
+        <script>document.querySelector('x-qwasezio').props = { asdf: true, gql: window.gql };</script>
     </body>
 </html>
 

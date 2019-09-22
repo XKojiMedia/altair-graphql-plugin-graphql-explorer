@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GraphiQLExplorer from 'graphiql-explorer';
 import { buildSchema } from 'graphql';
+import './wrapper.css';
 
 export class Wrapper extends Component {
   static defaultProps = {

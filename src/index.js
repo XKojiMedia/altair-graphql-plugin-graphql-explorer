@@ -4,9 +4,14 @@ import ReactDOM from 'react-dom';
 // import { buildSchema } from 'graphql';
 import { Wrapper } from './Wrapper';
 
-import ReactiveElements, { registerReact } from 'reactive-elements';
+import /*ReactiveElements,*/ { registerReact } from 'reactive-elements';
+// import { register } from 'web-react-components';
 
-registerReact('x-qwasezio', Wrapper);
+// register(Wrapper, 'zzart-x', [
+//   'props'
+// ]);
+
+registerReact('altair-graphql-plugin-graphql-explorer-element', Wrapper);
 // ReactWebComponent.create(<Wrapper />, 'x-qwasezio');
 
 // function defineElement(Component, elementName, observedAttributes) {

@@ -1,0 +1,6 @@
+.history-title-bar {
+  display: none;
+}
+div[id^='query-'] {
+  border-bottom-color: var(--theme-border-color);
+}
