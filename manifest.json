@@ -11,7 +11,9 @@
     "icon": "assets/icon.svg"
   },
   "scripts": [
-    "dist/main.js",
+    "dist/main.js"
+  ],
+  "styles": [
     "dist/main.css"
   ]
 }
