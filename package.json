@@ -1,11 +1,13 @@
 {
   "name": "altair-graphql-plugin-graphql-explorer",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "main": "./dist/main.js",
   "license": "MIT",
   "scripts": {
     "build": "NODE_ENV=production webpack --mode=production",
-    "dev": "NODE_ENV=development webpack --mode=development"
+    "dev": "NODE_ENV=development webpack --mode=development",
+    "prepublishOnly": "npm run build",
+    "web-server": "http-server -p 8002 --cors"
   },
   "dependencies": {
     "graphiql-explorer": "^0.4.4",
@@ -21,6 +23,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "css-loader": "^3.2.0",
+    "http-server": "^0.11.1",
     "mini-css-extract-plugin": "^0.8.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.40.2",

@@ -1,7 +1,8 @@
 {
   "manifest_version": 1,
   "name" : "altair-graphql-plugin-graphql-explorer",
-  "version" : "1.0.2",
+  "version" : "0.0.5",
+  "display_name": "GraphiQL explorer",
   "description" : "GraphiQL explorer plugin for Altair GraphQL",
   "author_email" : "altair@sirmuel.design",
   "author" : "Altair GraphQL Client",
