@@ -1,6 +1,6 @@
 {
   "name": "altair-graphql-plugin-graphql-explorer",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "./dist/main.js",
   "license": "MIT",
   "scripts": {
@@ -10,7 +10,7 @@
     "web-server": "http-server -p 8002 --cors"
   },
   "dependencies": {
-    "graphiql-explorer": "^0.4.4",
+    "graphiql-explorer": "^0.4.5",
     "graphql": "14.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

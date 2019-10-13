@@ -3,6 +3,27 @@ import GraphiQLExplorer from 'graphiql-explorer';
 import { buildSchema } from 'graphql';
 import './wrapper.css';
 
+const colors = {
+  keyword: 'var(--editor-keyword-color)',
+  // OperationName, FragmentName
+  def: 'var(--editor-def-color)',
+  // FieldName
+  property: 'var(--editor-property-color)',
+  // FieldAlias
+  qualifier: 'var(--editor-attribute-color)',
+  // ArgumentName and ObjectFieldName
+  attribute: 'var(--editor-attribute-color)',
+  number: 'var(--editor-number-color)',
+  string: 'var(--editor-string-color)',
+  // Boolean
+  builtin: 'var(--editor-builtin-color)',
+  // Enum
+  string2: 'var(--editor-string-color)',
+  variable: 'var(--editor-variable-color)',
+  // Type
+  atom: 'var(--editor-atom-color)',
+};
+
 export class Wrapper extends Component {
   static defaultProps = {
     sdl: '',
@@ -44,6 +65,7 @@ export class Wrapper extends Component {
         onEdit={(query) => this.onEdit(query)}
         explorerIsOpen={true}
         onToggleExplorer={noop}
+        colors={colors}
       />
     );
   }
