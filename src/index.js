@@ -1,6 +1,7 @@
-import React, { createFactory } from 'react';
+import 'document-register-element';
+// import React, { createFactory } from 'react';
 //import ReactWebComponent from 'react-web-component';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 // import { buildSchema } from 'graphql';
 import { Wrapper } from './Wrapper';
 
