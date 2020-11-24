@@ -1,16 +1,12 @@
 {
-  "manifest_version": 1,
+  "manifest_version": 2,
   "name" : "altair-graphql-plugin-graphql-explorer",
-  "version" : "0.0.6",
+  "version" : "1.0.0",
   "display_name": "GraphiQL explorer",
   "description" : "GraphiQL explorer plugin for Altair GraphQL",
   "author_email" : "altair@sirmuel.design",
   "author" : "Altair GraphQL Client",
-  "type": "sidebar",
-  "sidebar_opts": {
-    "element_name": "altair-graphql-plugin-graphql-explorer-element",
-    "icon": "assets/icon.svg"
-  },
+  "plugin_class": "GraphQLExplorer",
   "scripts": [
     "dist/main.js"
   ],

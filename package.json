@@ -1,6 +1,6 @@
 {
   "name": "altair-graphql-plugin-graphql-explorer",
-  "version": "0.0.7",
+  "version": "1.0.0",
   "main": "./dist/main.js",
   "license": "MIT",
   "scripts": {

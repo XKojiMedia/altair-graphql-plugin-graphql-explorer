@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import GraphiQLExplorer from 'graphiql-explorer';
 import { buildSchema } from 'graphql';
 import './wrapper.css';
@@ -24,55 +24,79 @@ const colors = {
   atom: 'var(--editor-atom-color)',
 };
 
-export class Wrapper extends Component {
-  static defaultProps = {
-    sdl: '',
-    query: '{ yo }',
-  };
-  state = {
-    schema: null
-  };
-  constructor(props) {
-    super(props);
-  }
+export const Wrapper = ({ context }) => {
+  const [ appState, setAppState ] = useState({});
+  const [ currentWindowId, setCurrentWindowId ] = useState(null);
+  const noop = (...args) => console.log(...args);
+  const onEdit = (query) => context.app.setQuery(currentWindowId, query);
+  const setQuery = useCallback(({ windowId, data }) => {
+    setAppState((appState) => ({
+      ...appState,
+      [windowId]: {
+        ...appState[windowId],
+        query: data,
+      }
+    }));
+  }, []);
+  const setSDL = useCallback(({ windowId, data }) => {
+    setAppState((appState) => ({
+      ...appState,
+      [windowId]: {
+        ...appState[windowId],
+        sdl: data,
+      }
+    }));
+  }, []);
 
-  componentDidMount() {
-    // console.log('XXXX', 'mounted');
-  }
-
-  componentWillReceiveProps(newProps) {
-    if (
-      newProps &&
-      newProps.sdl &&
-      (!this.props.sdl || newProps.sdl.length !== this.props.sdl.length)
-    ) {
-      // console.log('XXXX', 'building schema', newProps, this.props);
-      this.setState({ schema: buildSchema(newProps.sdl) });
+  const initializeCurrentWindowState = (state) => {
+    setCurrentWindowId(state.windowId);
+    let schema = null;
+    if (state.sdl) {
+      try {
+        schema = buildSchema(state.sdl);
+      } catch(error) {}
     }
+
+    setAppState((appState) => ({
+      ...appState,
+      [state.windowId]: {
+        ...state,
+        schema,
+      },
+    }));
+  };
+
+  useEffect(() => {
+    context.app.getCurrentWindowState().then(state => {
+      initializeCurrentWindowState(state);
+    });
+
+    context.events.on('query.change', setQuery);
+
+    context.events.on('sdl.change', setSDL);
+
+    context.events.on('current-window.change', async({ windowId }) => {
+      const newWindowState = await context.app.getWindowState(windowId);
+      initializeCurrentWindowState(newWindowState);
+    });
+
+    return () => {
+      context.events.off();
+    };
+  }, [ setQuery, setSDL ]);
+
+  if (!appState[currentWindowId]) {
+    return null;
   }
 
-  render() {
-    const { query } = this.props;
-    const noop = (...args) => console.log(...args);
-    const { schema } = this.state;
-
-    // console.log(this.schema);
-
-    return (
-      <GraphiQLExplorer
-        schema={schema}
-        query={query}
-        onEdit={(query) => this.onEdit(query)}
-        explorerIsOpen={true}
-        onToggleExplorer={noop}
-        colors={colors}
-      />
-    );
-  }
-
-  onEdit(query) {
-    const { ctx } = this.props;
-
-    ctx.setQuery(query);
-  }
-}
+  return (
+    <GraphiQLExplorer
+      schema={appState[currentWindowId].schema}
+      query={appState[currentWindowId].query}
+      onEdit={(query) => onEdit(query)}
+      explorerIsOpen={true}
+      onToggleExplorer={noop}
+      colors={colors}
+    />
+  );
+};
