@@ -22,6 +22,14 @@ class GraphQLExplorer {
     //     alert(`Found me!. query: ${state.query}`);
     //   }
     // });
+
+    // context.theme.add('graphql-explorer', {
+    //   colors: {
+    //     primary: '#88C0D0',
+    //     secondary: '#8FBCBB',
+    //   },
+    // });
+    // context.theme.enable('graphql-explorer');
   }
 
   async destroy() {}
