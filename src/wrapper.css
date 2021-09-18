@@ -1,6 +1,8 @@
 .graphiql-explorer-root {
   font-size: var(--body-font-size) !important;
   font-family: var(--editor-font-family) !important;
+  overflow: auto !important;
+  height: calc(100vh - 60px);
 }
 .graphiql-explorer-root svg path {
   fill: var(--theme-font-color) !important;
