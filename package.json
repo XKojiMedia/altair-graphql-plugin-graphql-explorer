@@ -7,7 +7,7 @@
     "build": "NODE_ENV=production webpack --mode=production",
     "dev": "NODE_ENV=development webpack --mode=development",
     "prepublishOnly": "npm run build",
-    "web-server": "http-server -p 8002 --cors"
+    "web-server": "http-server -c-1 -p 8002 --cors"
   },
   "dependencies": {
     "document-register-element": "^1.14.3",

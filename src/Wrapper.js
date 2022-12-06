@@ -24,6 +24,16 @@ const colors = {
   atom: 'var(--editor-atom-color)',
 };
 
+const buildSchemaNullable = (sdl) => {
+  let schema = null;
+  if (sdl) {
+    try {
+      schema = buildSchema(sdl);
+    } catch(error) {}
+  }
+  return schema;
+};
+
 export const Wrapper = ({ context }) => {
   const [ appState, setAppState ] = useState({});
   const [ currentWindowId, setCurrentWindowId ] = useState(null);
@@ -44,24 +54,18 @@ export const Wrapper = ({ context }) => {
       [windowId]: {
         ...appState[windowId],
         sdl: data,
+        schema: buildSchemaNullable(data),
       }
     }));
   }, []);
 
   const initializeCurrentWindowState = (state) => {
     setCurrentWindowId(state.windowId);
-    let schema = null;
-    if (state.sdl) {
-      try {
-        schema = buildSchema(state.sdl);
-      } catch(error) {}
-    }
-
     setAppState((appState) => ({
       ...appState,
       [state.windowId]: {
         ...state,
-        schema,
+        schema: buildSchemaNullable(state.sdl),
       },
     }));
   };
