@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "document-register-element": "^1.14.3",
-    "graphiql-explorer": "^0.4.5",
-    "graphql": "14.0.2",
+    "graphiql-explorer": "^0.9.0",
+    "graphql": "^16.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "reactive-elements": "^0.10.0"
