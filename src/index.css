@@ -2,10 +2,15 @@
   font-size: var(--body-font-size) !important;
   font-family: var(--editor-font-family) !important;
 }
+.docExplorerWrap {
+  min-width: 0px !important;
+  width: 100% !important;
+  color: var(--theme-font-color);
+}
 .doc-explorer-title-bar {
   display: none !important;
 }
-div[id^='query-'] {
+div[id^="query-"] {
   border-bottom-color: var(--theme-border-color) !important;
 }
 .graphiql-operation-title-bar input {
@@ -20,7 +25,7 @@ div[id^='query-'] {
   background-color: var(--theme-off-bg-color) !important;
   font-size: calc((12 / var(--baseline-size)) * 1rem) !important;
   font-weight: 500 !important;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
   border: 1px solid var(--theme-border-color);
 }
 .toolbar-button:hover {
@@ -44,4 +49,3 @@ div[id^='query-'] {
   margin: 0 4px;
   border: none;
 }
-

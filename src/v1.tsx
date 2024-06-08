@@ -1,18 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Wrapper } from './Wrapper';
+import { createRoot } from "react-dom/client";
+import { Wrapper } from "./V1Wrapper";
+import { PluginContext } from "altair-graphql-core/build/plugin/context/context.interface";
 
 class GraphQLExplorer {
-  constructor() {}
+  initialize(context: PluginContext) {
+    const div = document.createElement("div");
 
-  initialize(context) {
-    const div = document.createElement('div');
-
-    ReactDOM.render(
-      <Wrapper
-        context={context}
-      />
-    ,div);
+    const root = createRoot(div);
+    root.render(<Wrapper context={context} />);
     context.app.createPanel(div);
 
     // context.app.createAction({
@@ -36,4 +31,5 @@ class GraphQLExplorer {
 }
 
 // Add the class to the Altair plugins object
-window.AltairGraphQL.plugins.GraphQLExplorer = GraphQLExplorer;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+(window as any).AltairGraphQL.plugins.GraphQLExplorer = GraphQLExplorer;

@@ -1,37 +1,36 @@
 {
   "name": "altair-graphql-plugin-graphql-explorer",
-  "version": "1.0.2",
-  "main": "./dist/main.js",
-  "license": "MIT",
+  "private": true,
+  "version": "0.0.0",
   "scripts": {
-    "build": "NODE_ENV=production webpack --mode=production",
-    "dev": "NODE_ENV=development webpack --mode=development",
-    "prepublishOnly": "npm run build",
-    "web-server": "http-server -c-1 -p 8002 --cors"
+    "dev": "vite --port 8002",
+    "build": "yarn build:v3 && yarn build:v1",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "build:v3": "tsc && vite build",
+    "build:v1": "esbuild src/v1.tsx --bundle  --sourcemap --format=cjs --outfile=dist/v1.js",
+    "plugin-serve": "npx http-server ./ -c-1 -p 8002 --cors"
   },
   "dependencies": {
-    "document-register-element": "^1.14.3",
+    "altair-graphql-core": "file:../altair/packages/altair-core",
+    "esbuild": "^0.21.4",
     "graphiql-explorer": "^0.9.0",
     "graphql": "^16.0.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "reactive-elements": "^0.10.0"
+    "lucide-react": "^0.383.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-proposal-class-properties": "^7.4.0",
-    "@babel/preset-env": "^7.4.3",
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.5",
-    "css-loader": "^3.2.0",
-    "http-server": "^0.11.1",
-    "mini-css-extract-plugin": "^0.8.0",
-    "style-loader": "^1.0.0",
-    "webpack": "^4.40.2",
-    "webpack-cli": "^3.3.9"
-  },
-  "peerDependencies": {
-    "graphql": "^0.6.0 || ^0.7.0 || ^0.8.0-b || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0"
-  },
-  "sideEffects": false
+    "@emotion/react": "^11.11.4",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  }
 }

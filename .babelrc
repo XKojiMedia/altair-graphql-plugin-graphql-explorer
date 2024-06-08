@@ -1,11 +1,15 @@
 {
   "presets": [
-    ["@babel/preset-env", {
-      "modules": false,
-      "targets": {
-        "esmodules": true
+    [
+      "@babel/preset-env",
+      {
+        "modules": false,
+        "targets": {
+          "esmodules": true,
+          "browsers": "last 2 versions, > 5%"
+        }
       }
-    }],
+    ],
     [
       "@babel/preset-react",
       {
@@ -13,7 +17,14 @@
       }
     ]
   ],
-  "plugins": [["@babel/plugin-proposal-class-properties", {
-    "modules": false
-  }]]
+  "plugins": [
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "modules": false
+      }
+    ],
+
+    "@babel/plugin-transform-nullish-coalescing-operator"
+  ]
 }
