@@ -2,6 +2,12 @@
   font-size: var(--body-font-size) !important;
   font-family: var(--editor-font-family) !important;
 }
+.graphiql-explorer-root > div {
+  overflow: auto !important;
+}
+.graphiql-explorer-root span svg.lucide > path {
+  fill: none !important;
+}
 .docExplorerWrap {
   min-width: 0px !important;
   width: 100% !important;
