@@ -1,6 +1,7 @@
 {
   "name": "altair-graphql-plugin-graphql-explorer",
   "version": "2.0.0",
+  "license": "MIT",
   "scripts": {
     "dev": "vite --port 8002",
     "build": "yarn build:v3 && yarn build:v1",
