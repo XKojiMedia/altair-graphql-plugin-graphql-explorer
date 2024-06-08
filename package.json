@@ -1,6 +1,5 @@
 {
   "name": "altair-graphql-plugin-graphql-explorer",
-  "private": true,
   "version": "2.0.0",
   "scripts": {
     "dev": "vite --port 8002",
