@@ -5,17 +5,18 @@ import { fileURLToPath } from "url";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/dist/",
   build: {
     rollupOptions: {
       input: {
-        index: fileURLToPath(new URL("./index.html", import.meta.url)),
-        v1: fileURLToPath(new URL("./src/v1.tsx", import.meta.url)),
+        // index: fileURLToPath(new URL("./index.html", import.meta.url)),
+        // v1: fileURLToPath(new URL("./src/v1.tsx", import.meta.url)),
+        main: fileURLToPath(new URL("./src/main.tsx", import.meta.url)),
       },
       output: {
-        entryFileNames: `assets/[name].js`,
-        chunkFileNames: `assets/[name].js`,
-        assetFileNames: `assets/[name].[ext]`,
+        manualChunks: false as any,
+        inlineDynamicImports: true,
+        entryFileNames: "[name].js", // currently does not work for the legacy bundle
+        assetFileNames: "[name].[ext]", // currently does not work for images
       },
     },
   },
