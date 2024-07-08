@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/npm/altair-static@latest/build/dist/styles.css");
+
 .graphiql-explorer-root {
   font-size: var(--body-font-size) !important;
   font-family: var(--editor-font-family) !important;

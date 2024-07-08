@@ -24,17 +24,17 @@ class GraphQLExplorer extends PluginV3 {
       //   ctx.destroyPanel(panelId);
       // }, 1000 * 60);
     }
-    const actionId1 = await ctx.createAction({
-      title: "Test 1",
-      execute(state) {
-        console.log("PLUGIN Found me!", state);
-      },
-    });
-    if (actionId1) {
-      setTimeout(() => {
-        ctx.destroyAction(actionId1);
-      }, 1000 * 60);
-    }
+    // const actionId1 = await ctx.createAction({
+    //   title: "Test 1",
+    //   execute(state) {
+    //     console.log("PLUGIN Found me!", state);
+    //   },
+    // });
+    // if (actionId1) {
+    //   setTimeout(() => {
+    //     ctx.destroyAction(actionId1);
+    //   }, 1000 * 60);
+    // }
     // const div = document.createElement("div");
 
     // ReactDOM.render(<Wrapper context={ctx} />, div);
